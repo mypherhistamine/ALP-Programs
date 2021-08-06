@@ -35,14 +35,14 @@ end main        ;end of program
 
 ## Intro 
 
-1. [Rules for storing data](https://github.com/mypherhistamine/ALP-Programs/new/main?readme=1#1-rules-for-storing-data)
+1. [Rules for storing data](1)
 2. Data types in 8086 assembly language 
 3. Variable declaration and it's initialization
 
 ### 1) Rules for Storing data 
 
 We can store data in : 
-- [Decimal](https://github.com/mypherhistamine/ALP-Programs/new/main?readme=1#decimal)
+- [Decimal](####-decimal)
 - Hexadecimal
 - Binary 
 - Character 
@@ -131,7 +131,7 @@ Examples
 
 
 
-### 2) Variable declaration and it's initialization 
+### 3) Variable declaration and it's initialization 
 
 Syntax: 
 ```assembly [variable_name] [data_type] [value]```
@@ -144,6 +144,82 @@ FirstNm db "Rishabh $"
 Subject db 'Assembly $'
 Section db 'V' 
 ```
+
+
+### 4) Instruction Set
+ 
+An instruction is a command given to the processor by the computer program. A group of instructions that a microprocessor supports is known as the **`Intsruction Set`**
+
+The 8086 microprocessor supports 8 types of instructions: 
+
+1. Data transfer instructions
+2. Arithmetic instructions
+3. Bit manipulation instructions 
+4. String instructions
+5. Program execution transfer instructions (branch and loop instructions )
+6. Processor control instructions 
+7. Iteration control instructions 
+8. Interrupt instructions 
+
+#### 1. Data Transfer Instructions 
+- Operations used to transfer the data from the source operand to the destination operand.
+- Following are the list of instructions under this group
+    - **MOV** instruction
+    - **XCHG** instruction
+    - and many more
+- Instructions to transfer the address for example: 
+- load effective address etc(LEA) .
+
+#### 2. Arithmetic Instructions
+- Used to perform arithmetic operations like addition , multiplication , division etc
+- Following are the list of few instructions under this group
+
+1. Instructions to perform addition
+    - `ADD` - used to add the provided byte/word to word.
+    - `ADC` - (add with carry) - used to add with carry
+    - `INC` - (increment) - increment the provided byte/word by 1
+    - `AAA` - (ASCII Adjust After Addition) - used to adjust ASCII after addition 
+    - and many more
+
+2. Instructions to perform subtraction
+    - `SUB` - (subtraction) subtract the byte from byte/word from word.
+    - `SBB` - (subtract with borrow) - perform subtraction with borrow
+    - `DEC` - (decrement) - used to decrement the provided byte/word by 1
+    - `NEG` - (negate) - negate each bit of the provided byte/word and add 1 or 2's complement
+    - `CMP` - (compare) - compare two provided byte/word
+    - `AAS` - Adjust ASCII codes after subtraction 
+    - and many more...
+
+3. Instructions to perform multiplication
+    - `MUL` - (multiplication) - multiply **unsigned** byte by byte/word by word.
+    - `IMUL` - multipled **signed** byte by byte/word by word
+    - `AAM` - ASCII adjust after multiplication. Used to adjust `ASCII` codes after multiplication
+ 
+4. Instructions to perform division
+    - `DIV` - (division) - divide **unsigned** word by byte or **unsigned** word by word
+    - `IDIV` - (signed division) - divide **signed** word by byte or **signed** word by word
+    - `AAD` - Adjust ASCII codes after division 
+    - `CBW` - Convert byte to word , fills the upper byte word with the copies of sign bit of the lower byte
+    - `CWD` - Convert word to double , fill the upper word of the double word with the sign bit of the lower word
+
+#### 3. Bit Manipulation Instructions 
+
+- Perform operations where data bits are involved. i.e , operations like logical shift etc.
+Following are the list of few instructions under this group
+
+1. Instructions to perform logical Operation
+    - `NOT` - invert each bit of a byte/word. Inverts bits by taking 1's complement
+    - `AND` - and each bit in a byte/word
+    - `XOR` - perform exclusive-OR operation
+    - `TEST` - update flags,without affecting operands.
+
+2. Instructions to perform shift operations
+    - `SHL` - Shift logical left. Shifts the **unsigned** bits towards left by multiplying with 2^n where n is the number of bits
+    - `SAL` - Shift arithmetic left - shifts **signed** bits towards the left. by multiplying with 2^n. 
+
+3. Instructions to perform rotate operations 
+    - `SHL` - Shift logical left. Shifts the **unsigned** bits towards left by multiplying with 2^n where n is the number of bits
+    - `SAL` - Shift arithmetic left - shifts **signed** bits towards the left. by multiplying with 2^n. 
 
 
 
