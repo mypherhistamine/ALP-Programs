@@ -655,6 +655,9 @@ Use case
 - INT 21H , Function 02H - Display a number or character on the screen
 - INT 21H , Function 04CH - Terminate the code properly and return to the DOS Prompt
 
+> Note for calling a sub-routine we will need that n value in the Ah register 
+
+> To display some string the memory address of that string should be in the dl or dx register 
 
 ### 9) Offset and LEA Instruction 
 
@@ -675,7 +678,19 @@ LEA register , memory variable
 - They are used for string display 
 - AH register is used for calling sub-routines
 
+---
+
+Difference of LEA and Offset Instruction 
+
+| Offset              | LEA  |
+|----------------|----------|
+| Holds the beginning address of a variable                                                                                                                     | It's an indirect instruction in which register points to  a memory location and holds the address of that memory location |
+| MOV instruction can't be indexed because OFFSET is an assembler directive , not an instruction (we can't simply go to some index of that string after that )  | LEA instruction can be indexed we can access the part of string by indexing                                               |
+
+![lea vs offset image](images\offset_vs_lea.png)
+
+---
 
 
-Write an assembly program to display hello world on console ? 
+
 
