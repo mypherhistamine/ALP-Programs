@@ -414,3 +414,78 @@ Syntax:
 ```assembly
 ADD destinaion , source
 ```
+
+
+#### `SUB` Instruction
+SUBTRACT PROVIDED BYTE TO BYTE/WORD (Two operand based)
+
+
+Syntax: 
+
+```assembly
+SUB destinaion , source
+```
+
+
+### Rules for data transfer instructions
+
+#### For `Mov` Instruction
+
+1) Register to Register
+Register to register data movement of same size is allowed. 
+
+For example
+```asm
+mov ax,bx
+mov ch,dl
+
+mov ch,dx ; not allowed as size of both the register is not same
+```
+
+2) Segment register to register
+segment Register to register data movement of same size is allowed
+
+For example
+```asm
+mov ax,cs ; cs - code segment
+mov dx,es ; es - extra segment
+mov bx , ds ; ds - data segment
+mov al , es ; this is invalid as al - 8 bit and es - 16-bit
+```
+
+3) Variable to Register
+**Variable is a memory location.**
+Variable to register data transfer is allowed of same size
+
+For example
+```asm
+mov al , age ;depends on age variable data type. Allowed if age is also 8 bit as al is a 8-bit register
+
+mov bl , num1 ;allowed if num1 8-bit
+
+mov ax , no ;allowed if no is 16-bit value 
+```
+
+4) Constant to register
+Constant to register data transfer is allowed , if constant is in the given data range
+
+For example: 
+```asm
+mov ax , 5
+mov bh , 101
+mov al , 55
+```
+
+5) Register to segment register
+Allowed if same size
+
+For example: 
+```asm
+    mov es , dx   ;valid
+    mov ds , cx   ;valid
+    mov 
+```
+
+6) Variable to Variable 
+Memory location to memory location data movement is not allowed in assembly 
+> We can not access two memory locations simultaneously in 8086 register

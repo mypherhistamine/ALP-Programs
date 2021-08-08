@@ -16,6 +16,3 @@ code segment
     mov res,ax
     
 ends
-
-
-    
