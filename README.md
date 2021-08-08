@@ -33,20 +33,24 @@ main endp       ;end of main procedure
 end main        ;end of program 
 ```
 
-## Intro 
+## Table of Contents
 
-1. [Rules for storing data](1)
-2. Data types in 8086 assembly language 
-3. Variable declaration and it's initialization
+1. [Rules for storing data](#1-rules-for-storing-data)
+2. [Data types in 8086 assembly language](#2-data-types-in-8086-assembly-language)
+3. [Variable declaration and it's initialization](#3-variable-declaration-and-its-initialization)
+4. [Instruction Set](#4-instruction-set)
+5. [Instruction set of 8086](#5-instruction-template-of-8086)
+6. [Some important instructions](#6-some-important-instructions)
+7. [Rules for data transfer instructions](#7-rules-for-data-transfer-instructions)
 
 ### 1) Rules for Storing data 
 
 We can store data in : 
 - [Decimal](#decimal)
-- Hexadecimal
-- Binary 
-- Character 
-- String 
+- [Hexadecimal](#hexadecimal-numbers)
+- [Binary](#binary-number)
+- [Character](#characters) 
+- [String](#string) 
 
 
 #### Decimal 
@@ -152,14 +156,14 @@ An instruction is a command given to the processor by the computer program. A gr
 
 The 8086 microprocessor supports 8 types of instructions: 
 
-1. Data transfer instructions
-2. Arithmetic instructions
-3. Bit manipulation instructions 
-4. String instructions
-5. Program execution transfer instructions (branch and loop instructions )
-6. Processor control instructions 
-7. Iteration control instructions 
-8. Interrupt instructions 
+1. [Data transfer instructions](#1-data-transfer-instructions)
+2. [Arithmetic instructions](#2-arithmetic-instructions)
+3. [Bit manipulation instructions](#3-bit-manipulation-instructions) 
+4. [String instructions](#4-string-instructions)
+5. [Program execution transfer instructions (branch and loop instructions )](#5-program-execution-transfer-instructions-branch-and-loop-instructions)
+6. [Processor control instructions](#6-processor-control-instructions) 
+7. [Iteration control instructions](#7-iteration-control-instructions) 
+8. [Interrupt instructions](#8-interrupt-instructions) 
 
 #### 1. Data Transfer Instructions 
 - Operations used to transfer the data from the source operand to the destination operand.
@@ -229,9 +233,10 @@ Following are the list of few instructions under this group
 `Strings` - A group of bytes/words and their memory is always allocated in a sequential order.
 
 Following are the list of few instructions under this group
-    - `MOVS` / `MOVSB` / `MOVSW` - move byte/word from one string to another
-    - `COMS` / `COMPSB` / `COMPSW` - COMPARE TWO STRING BYTES/WORDS. 
-    - many more 
+
+- `MOVS` / `MOVSB` / `MOVSW` - move byte/word from one string to another
+- `COMS` / `COMPSB` / `COMPSW` - COMPARE TWO STRING BYTES/WORDS. 
+- many more 
 
 
 #### 5. Program execution Transfer Instructions (Branch and loop instructions)
@@ -285,36 +290,43 @@ Conditional Jumps for Overflow , Carry , Signed and Zero
 
 #### 6. Processor Control instructions 
 CONTROLS PROCESSOR ACTION BY SETTING/RESETTING THE FALG VALUES. 
+
 Following are some instructions under this group: 
-    -`STC` - SET CARRY FLAG TO 1 (CF = 1) 
-    -`CLC` - CLEAR/RESET CARRY FLAG CF TO 0 (CF = 0)
-    -`STD` - SET DIRECTION FLAG TO 1 (DF = 1)
-    -`CLD` - CLEAR/RESET DIRECTION FLAG DF TO 0 ( DF = 0 )
+
+- `STC` - SET CARRY FLAG TO 1 (CF = 1) 
+- `CLC` - CLEAR/RESET CARRY FLAG CF TO 0 (CF = 0)
+- `STD` - SET DIRECTION FLAG TO 1 (DF = 1)
+- `CLD` - CLEAR/RESET DIRECTION FLAG DF TO 0 ( DF = 0 )
 
 
 #### 7. Iteration Control Instructions
 EXECUTE GIVEN INSTRUCTIONS FOR **NUMBER OF TIMES** 
+
 Following are some instructions under this group: 
-    -`LOOP` - LOOP A GROUP OF INSTRUCTIONS UNTIL CONDITION SATISFIES , i.e  CX  = 0
+
+- `LOOP` - LOOP A GROUP OF INSTRUCTIONS UNTIL CONDITION SATISFIES , i.e  CX  = 0
 
 
 #### 8. Interrupt Instructions 
 CALL THE INTERRUPT DURING PROGRAM EXECUTION
-    -`INT` - INTERRUPT THE PROGRAM DURING EXECUTION AND CALLING SERVICE SPECIFIED
+
+- `INT` - INTERRUPT THE PROGRAM DURING EXECUTION AND CALLING SERVICE SPECIFIED
 
 
 
 
 ### 5) Instruction Template of 8086
 
-Templates of 8086 contains: 
-    - `Opcode` - operational code 
-    - `Operand` - on which we apply operation
+Templates of 8086 contains
+
+- `Opcode` - operational code 
+- `Operand` - on which we apply operation
 
 There are 3 types of instructions templates supported by 8086 assembly language
-    - Zero operand instruction
-    - One operand instruction
-    - Two operand instruction
+
+- Zero operand instruction
+- One operand instruction
+- Two operand instruction
 
 
 #### Zero operand instruction 
@@ -326,10 +338,11 @@ Examples
     - RET
     - STC
     - STD 
-    etc
+    - etc
 
 #### One operand instruction
 - ONE OPERAND AND ONE OPCODE 
+
 Examples
 
     - MUL register/Mem variable
@@ -340,7 +353,7 @@ Examples
 #### Two operand instruction
 - ONE OPCODE AND TWO OPERANDS 
 
-Ex 
+Examples
     - add destination, source 
     - sub destination, source 
     - mov destination, source 
@@ -350,6 +363,13 @@ Ex
 ### 6) Some important instructions 
 
 Some of the most used instructions of 8086 ALP
+1. [MOV](#mov-instruction)
+2. [XCHG](#xchg-intrustion)
+3. [INC](#inc-instruction)
+4. [DEC](#dec-instruction)
+5. [NEG](#neg-instruction)
+6. [ADD](#add-instruction)
+7. [SUB](#sub-instruction)
 
 
 #### `MOV` Instruction
@@ -365,7 +385,8 @@ source  ====> operand2
 
 
 #### `XCHG` Intrustion
-EXCHANGE DATA BETWEEN TWO REGISTERS OR A REGISTER AND A MEMORY LOCATION 
+EXCHANGE DATA BETWEEN TWO REGISTERS OR A REGISTER AND A MEMORY LOCATION
+
 Syntax: 
 ```assembly
 xchg destinaion , source
@@ -373,6 +394,7 @@ xchg destinaion , source
 
 #### `INC` Instruction 
 INCREMENT BYTE/WORD BY 1
+
 Syntax: 
 
 ```assembly
@@ -381,6 +403,7 @@ INC register/variable
 
 #### `DEC` Instruction
 DECREMENT BYTE/WORD BY 1
+
 Syntax: 
 
 ```assembly
@@ -389,6 +412,7 @@ DEC register/variable
 
 #### `NEG` Instruction
 Negate each bit of provided byte/word and then add 1 for 2's complement
+
 Syntax: 
 
 ```assembly
@@ -427,11 +451,13 @@ SUB destinaion , source
 ```
 
 
-### Rules for data transfer instructions
+### 7) Rules for data transfer instructions
 
 #### For `Mov` Instruction
 
 1) Register to Register
+
+
 Register to register data movement of same size is allowed. 
 
 For example
@@ -443,6 +469,8 @@ mov ch,dx ; not allowed as size of both the register is not same
 ```
 
 2) Segment register to register
+
+
 segment Register to register data movement of same size is allowed
 
 For example
@@ -454,7 +482,10 @@ mov al , es ; this is invalid as al - 8 bit and es - 16-bit
 ```
 
 3) Variable to Register
+
+
 **Variable is a memory location.**
+
 Variable to register data transfer is allowed of same size
 
 For example
@@ -467,6 +498,8 @@ mov ax , no ;allowed if no is 16-bit value
 ```
 
 4) Constant to register
+
+
 Constant to register data transfer is allowed , if constant is in the given data range
 
 For example: 
@@ -477,6 +510,8 @@ mov al , 55
 ```
 
 5) Register to segment register
+
+
 Allowed if same size
 
 For example: 
@@ -487,5 +522,7 @@ For example:
 ```
 
 6) Variable to Variable 
+
+
 Memory location to memory location data movement is not allowed in assembly 
 > We can not access two memory locations simultaneously in 8086 register
