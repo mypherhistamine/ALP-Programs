@@ -38,8 +38,8 @@ end main        ;end of program
 1. [Rules for storing data](#1-rules-for-storing-data)
 2. [Data types in 8086 assembly language](#2-data-types-in-8086-assembly-language)
 3. [Variable declaration and it's initialization](#3-variable-declaration-and-its-initialization)
-4. [Instruction Set](#4-instruction-set)
-5. [Instruction set of 8086](#5-instruction-template-of-8086)
+4. [Instruction Set of 8086](#4-instruction-set)
+5. [Instruction template of 8086](#5-instruction-template-of-8086)
 6. [Some important instructions](#6-some-important-instructions)
 7. [Rules for data transfer instructions](#7-rules-for-data-transfer-instructions)
 
@@ -521,8 +521,70 @@ For example:
     mov 
 ```
 
-6) Variable to Variable 
+6) Variable to Variable
+
+Memory location to memory location data movement is not allowed in assembly
+
+**We can not access two memory locations simultaneously in 8086 register**
+
+Examples 
+
+```asm
+mov num1, num2  ;invalid as var to var data mov is happening
+mov num1,ax     ;valid if num1 16-bit and ax is also 16-bit 
+```
+
+7) Register to constant \
+Register to constant data movement is not allowed in assembly 
+
+Example
+
+```asm
+mov 7 , ax ;invalid
+```
+
+8) Segment register to Segment register
+
+Segment to segment data movement is **not allowed** in assembly 
+
+Example 
+
+```asm
+mov es , ds ;invalid segment to segment data movement is not allowed
+```
+
+9) Constant to segment register 
+
+Constant to segment data movement is not allowed 
+
+```asm
+mov es , 7 ;invalid as we can't move constant value to segment register
+```
+
+10) Segment register to constant 
+Invalid 
+
+```asm
+mov 15 , es ;invalid destinaion can't be a constant
+```
 
 
-Memory location to memory location data movement is not allowed in assembly 
-> We can not access two memory locations simultaneously in 8086 register
+11) Can't access IP
+
+- In program we can't access IP.
+- We can't read/write from IP
+
+```asm
+mov IP , ax ;invalid 
+mov bx , IP ; invalid 
+````
+
+12) Segment register to variable 
+Allowed if same size
+
+Example: 
+
+```asm
+mov num1 , es ;num1 must be 16 bit variable 
+
+```
