@@ -14,8 +14,12 @@ start:
 
 mov ax , @data
 mov ds , ax
-                                                
-mov dl , offset  st + 2
+
+mov bx , 2 ;suppose we need to jump by some logic for that we will use a variable 
+
+;so offset indexing for strings will not work for that we will need to use lea
+
+mov dl , offset  st + bx
 mov ah , 09h ;printing sub-routine
 int 21h
 
@@ -24,7 +28,7 @@ lea dx , newline
 int 21h
 
 ;show the new string using lea and indexing
-lea dx , st + 2
+lea dx , st + bx
 int 21h
 
 

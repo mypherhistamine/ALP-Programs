@@ -43,6 +43,7 @@ end main        ;end of program
 6. [Some important instructions](#6-some-important-instructions)
 7. [Rules for data transfer instructions](#7-rules-for-data-transfer-instructions)
 8. [Microprocessor Interrupts](#8-microprocessor-interrupts)
+9. [Offset and LEA Instruction](#9-offset-and-lea-instruction)
 ---
 ### 1) Rules for Storing data 
 
@@ -119,6 +120,7 @@ Examples
 | 'Assembly'   | Invalid       | Doesn't end with `$` sign |
 |  Assembly    | Invalid       | Doesn't end with `$` sign |
 
+---
 
 ### 2) Data types in 8086 Assembly Language 
 
@@ -134,7 +136,7 @@ Examples
 | DT                           | Define tera  | unsiged   | 10 byte | 0 to 2^128 - 1                            |
 
 
-
+---
 
 ### 3) Variable declaration and it's initialization 
 
@@ -150,6 +152,15 @@ Subject db 'Assembly $'
 Section db 'V' 
 ```
 
+Constant Variable Declaration Syntax 
+```asm
+;variable_name EQU value
+
+;example
+CR EQU 13 ; CR - carry return for putting cursor to beginning
+```
+
+---
 
 ### 4) Instruction Set
  
@@ -314,7 +325,7 @@ CALL THE INTERRUPT DURING PROGRAM EXECUTION
 - `INT` - INTERRUPT THE PROGRAM DURING EXECUTION AND CALLING SERVICE SPECIFIED
 
 
-
+---
 
 ### 5) Instruction Template of 8086
 
@@ -360,6 +371,7 @@ Examples
     - mov destination, source 
     - cmp destination, source 
 
+---
 
 ### 6) Some important instructions 
 
@@ -450,7 +462,7 @@ Syntax:
 ```assembly
 SUB destinaion , source
 ```
-
+---
 
 ### 7) Rules for data transfer instructions
 
@@ -588,7 +600,7 @@ Example:
 ```asm
 mov num1 , es ;num1 must be 16 bit variable 
 ```
-
+---
 
 ### 8) Microprocessor Interrupts
 
@@ -649,15 +661,21 @@ Use case
 
 ##### DOS Interrupts (INT 21h)
 
-- INT 21H , Function 09H - Display the string on the screen
-- INT 21H , Function 01H - Get character input with Echo
-- INT 21H , Function 08H - Get character input without echo
-- INT 21H , Function 02H - Display a number or character on the screen
-- INT 21H , Function 04CH - Terminate the code properly and return to the DOS Prompt
+- `09H` --> PUT string or PUTS() - Used for string display
+- `01H` --> Take character input with echo
+- `08H` --> Take character input without echo
+- `4cH` --> termite or EXIT() - successfully terminate program and return control back to DOS
+- `0ah` --> Take String input 
+- `02h` --> show character display
+
 
 > Note for calling a sub-routine we will need that n value in the Ah register 
 
 > To display some string the memory address of that string should be in the dl or dx register 
+
+---
+
+
 
 ### 9) Offset and LEA Instruction 
 
@@ -690,6 +708,10 @@ Difference of LEA and Offset Instruction
 ![lea vs offset image](images\offset_vs_lea.png)
 
 ---
+
+
+
+
 
 
 
