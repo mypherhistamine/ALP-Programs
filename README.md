@@ -346,3 +346,20 @@ Ex
     - mov destination, source 
     - cmp destination, source 
 
+
+### 6) Some important instructions 
+
+Some of the most used instructions of 8086 ALP
+
+#### Mov Instruction
+- TRANSFER DATA BETWEEN REGISTERS ,  A REGISTER AND A MEMORY LOCATION 
+- COPY A NUMBER DIRECTLY INTO A REGISTER OR A MEMORY LOCATION 
+
+Syntax :
+```asm 
+mov destination , source 
+```
+destination ===> operand1
+source  ====> operand2
+
+
