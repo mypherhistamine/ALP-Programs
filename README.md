@@ -216,10 +216,90 @@ Following are the list of few instructions under this group
 2. Instructions to perform shift operations
     - `SHL` - Shift logical left. Shifts the **unsigned** bits towards left by multiplying with 2^n where n is the number of bits
     - `SAL` - Shift arithmetic left - shifts **signed** bits towards the left. by multiplying with 2^n. 
+    - `SHR` - Shift Logical Right - shifts **unsigned** number bits towards right. Shifts by dividing with 2^n.
+    - `SAR` - Shift Arithmetic Right - shifts **signed** number bits towards right by dividing with 2^n.
 
 3. Instructions to perform rotate operations 
-    - `SHL` - Shift logical left. Shifts the **unsigned** bits towards left by multiplying with 2^n where n is the number of bits
-    - `SAL` - Shift arithmetic left - shifts **signed** bits towards the left. by multiplying with 2^n. 
+    - `ROL` - Rotate left - rotates bits of byte/word towards left i.e - MSB to LSB and to carry flag [CF]
+    - `ROR` - Rotate right - rotate bits of byte/word towards right , LSB to MSB and to Carry Flag [CF].
+    - `RCR` - Rotate right with carry - rotates bits of byte/word towards right , LSB to CF and CF to MSB
+    - `RCL` - Rotate left with carry - rotates byte/word towards the left , MSB to CF and CF to LSB. 
+
+#### 4. String Instructions 
+`Strings` - A group of bytes/words and their memory is always allocated in a sequential order.
+
+Following are the list of few instructions under this group
+    - `MOVS` / `MOVSB` / `MOVSW` - move byte/word from one string to another
+    - `COMS` / `COMPSB` / `COMPSW` - COMPARE TWO STRING BYTES/WORDS. 
+    - many more 
+
+
+#### 5. Program execution Transfer Instructions (Branch and loop instructions)
+
+- used to transfer/branch the instructions during an execution.
+- Includes the following instructions 
+
+1. Instructions to transfer the instruction during an execution without any condition
+    - `CALL` - CALL A PROCEDURE AND SAVE THEIR RETURN ADDRESS TO THE STACK
+    - `RET` - RETURN FROM THE PROCEDURE TO THE MAIN PROGRAM/PROCEDURE
+    - `JMP` - JUMP TO THE PROVIDED ADDRESS TO PROCEED TO THE NEXT INSTRUCTION
+
+2. Conditional Branch
+
+Conditional Jumps for **signed** numbers 
+
+| Instruction  | Jump Condition           | Test                       |
+|--------------|--------------------------|----------------------------|
+| JE           | JUMP IF EQUAL            | ZF = 1                     |
+| JNE          | JUMP IF NOT EQUAL        | ZF = 0                     |
+| JG           | JUMP IF GREATER          | ZF = 0 AND SF = OF         |
+| JGE          | JUMP OF GREATER OR EQUAL | SF = OF                    |
+| JL           | JUMP IF LESS             | SF NOT EQUAL TO OF         |
+| JLE          | JUMP IF LESS OR EQUAL    | ZF = 1 OR SF NOT EQUAL OF  |
+
+Conditional Jumps for **unsigned** numbers 
+
+| Instruction  | Jump Condition         | Test              |
+|--------------|------------------------|-------------------|
+| JA           | JUMP IF ABOVE          | CF = 0 AND ZF = 0 |
+| JAE          | JUMP IF ABOVE OR EQUAL | CF = 0            |
+| JB           | JUMP IF BELOW          | CF = 1            |
+| JBE          | JUMP IF BELOW OR EQUAL | CF =1 OR ZF = 1   |
+
+
+Conditional Jumps for Overflow , Carry , Signed and Zero
+
+| Instruction  | Jump Condition               | Test    |
+|--------------|------------------------------|---------|
+| JO           | JUMP ON OVERFLOW             | OF = 1  |
+| JNO          | JUMP ON NO OVERFLOW          | OF = 0  |
+| JC           | JUMP ON CARRY                | CF  = 1 |
+| JNC          | JUMP ON NO CARRY             | CF = 0  |
+| JS           | JUMP ON SIGN(NEGATIVE)       | SF = 1  |
+| JNS          | JUMP ON NO SIGN ( POSITIVE)  | SF = 0  |
+| JZ           | JUMP IF ZERO (SAME AS JE)    | ZF = 1  |
+| JNZ          | JUMP IF NOT ZERO             | ZF = 0  |
+
+
+
+
+#### 6. Processor Control instructions 
+CONTROLS PROCESSOR ACTION BY SETTING/RESETTING THE FALG VALUES. 
+Following are some instructions under this group: 
+    -`STC` - SET CARRY FLAG TO 1 (CF = 1) 
+    -`CLC` - CLEAR/RESET CARRY FLAG CF TO 0 (CF = 0)
+    -`STD` - SET DIRECTION FLAG TO 1 (DF = 1)
+    -`CLD` - CLEAR/RESET DIRECTION FLAG DF TO 0 ( DF = 0 )
+
+
+#### 7. Iteration Control Instructions
+EXECUTE GIVEN INSTRUCTIONS FOR **NUMBER OF TIMES** 
+Following are some instructions under this group: 
+    -`LOOP` - LOOP A GROUP OF INSTRUCTIONS UNTIL CONDITION SATISFIES , i.e  CX  = 0
+
+
+#### 8. Interrupt Instructions 
+
 
 
 
