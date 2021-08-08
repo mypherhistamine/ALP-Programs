@@ -42,7 +42,7 @@ end main        ;end of program
 ### 1) Rules for Storing data 
 
 We can store data in : 
-- [Decimal](####-decimal)
+- [Decimal](#decimal)
 - Hexadecimal
 - Binary 
 - Character 
