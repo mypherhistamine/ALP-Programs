@@ -386,3 +386,31 @@ Syntax:
 ```assembly
 DEC register/variable
 ```
+
+#### `NEG` Instruction
+Negate each bit of provided byte/word and then add 1 for 2's complement
+Syntax: 
+
+```assembly
+NEG register/variable 
+```
+For example: 
+
+if we have to find 2's complement of -235
+
+Binary Value                   DEC       HEX 
+
+1111 1111 0001 0101 ------>   -235      FF15
+
+Applying 2's complement
+0000 0000 1110 1011   ----->   235       00EB
+
+#### `ADD` Instruction
+ADD PROVIDED BYTE TO BYTE/WORD (Two operand based)
+
+
+Syntax: 
+
+```assembly
+ADD destinaion , source
+```
