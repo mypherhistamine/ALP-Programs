@@ -299,7 +299,50 @@ Following are some instructions under this group:
 
 
 #### 8. Interrupt Instructions 
+CALL THE INTERRUPT DURING PROGRAM EXECUTION
+    -`INT` - INTERRUPT THE PROGRAM DURING EXECUTION AND CALLING SERVICE SPECIFIED
 
 
 
+
+### 5) Instruction Template of 8086
+
+Templates of 8086 contains: 
+    - `Opcode` - operational code 
+    - `Operand` - on which we apply operation
+
+There are 3 types of instructions templates supported by 8086 assembly language
+    - Zero operand instruction
+    - One operand instruction
+    - Two operand instruction
+
+
+#### Zero operand instruction 
+
+- ONLY CONTAINS OPCODE
+Examples
+
+    - AAA
+    - RET
+    - STC
+    - STD 
+    etc
+
+#### One operand instruction
+- ONE OPERAND AND ONE OPCODE 
+Examples
+
+    - MUL register/Mem variable
+    - INC register/Mem variable
+    - DIV register/Mem variable
+    - IDIV register/Mem variable
+
+#### Two operand instruction
+- ONE OPCODE AND TWO OPERANDS 
+
+Ex 
+    - add destination, source 
+    - sub destination, source 
+    - mov destination, source 
+    - cmp destination, source 
 
