@@ -351,7 +351,7 @@ Ex
 
 Some of the most used instructions of 8086 ALP
 
-#### Mov Instruction
+#### `Mov` Instruction
 - TRANSFER DATA BETWEEN REGISTERS ,  A REGISTER AND A MEMORY LOCATION 
 - COPY A NUMBER DIRECTLY INTO A REGISTER OR A MEMORY LOCATION 
 
@@ -362,4 +362,11 @@ mov destination , source
 destination ===> operand1
 source  ====> operand2
 
+
+#### `Xchg` Intrustion
+EXCHANGE DATA BETWEEN TWO REGISTERS OR A REGISTER AND A MEMORY LOCATION 
+Syntax: 
+```assembly
+xchg destinaion , source
+```
 
