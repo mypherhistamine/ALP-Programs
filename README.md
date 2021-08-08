@@ -656,3 +656,26 @@ Use case
 - INT 21H , Function 04CH - Terminate the code properly and return to the DOS Prompt
 
 
+### 9) Offset and LEA Instruction 
+
+
+Offset - an assembler directive which holds the beginning address of a variable 
+
+Syntax 
+```asm
+mov register/variable , offset memory variable
+```
+
+LEA - Load Effective Address loads the specified register with the offset of a memory location.
+
+```asm
+LEA register , memory variable 
+```
+
+- They are used for string display 
+- AH register is used for calling sub-routines
+
+
+
+Write an assembly program to display hello world on console ? 
+
