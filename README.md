@@ -43,7 +43,8 @@ end main        ;end of program
 6. [Some important instructions](#6-some-important-instructions)
 7. [Rules for data transfer instructions](#7-rules-for-data-transfer-instructions)
 8. [Microprocessor Interrupts](#8-microprocessor-interrupts)
-9. [Offset and LEA Instruction](#9-offset-and-lea-instruction)
+9. [Assembler Directive](#9-assembler-directive)
+10. [Offset and LEA Instruction](#10-offset-and-lea-instruction)
 ---
 ### 1) Rules for Storing data 
 
@@ -676,8 +677,21 @@ Use case
 ---
 
 
+### 9) Assembler Directive
 
-### 9) Offset and LEA Instruction 
+- They are instructions entered into the source code along with the assembly language.
+- They are Psuedo instructions (They do not get translated into object code) but are used as special instructions to the assembler to perform some special functions
+- They control the generation of machine code and organization of the program
+ 
+There are two types of instructions 
+
+1. The instructions which can be translated to `machine code` by the assembler.
+2. The directives that directs the assembler during the assembly process for which `no machine code` is generated. 
+3. 
+
+
+
+### 10) Offset and LEA Instruction 
 
 
 Offset - an assembler directive which holds the beginning address of a variable 
