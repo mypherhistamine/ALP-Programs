@@ -1,0 +1,52 @@
+DATA SEGMENT
+    LOWER_BYTE   DW      2130H
+    HIGHER_BYTE  DW      9BCEH
+    RESULT       DW      ?
+    MUL_RESULTH  DW      ? 
+    MUL_RESULTL  DW      ?
+    REMAINDER    DW      ?
+    QUOTIENT     DW      ? 
+DATA ENDS
+
+CODE SEGMENT
+     ASSUME CS:CODE , DS:DATA 
+     
+     
+      
+      START:
+      
+      MOV AX , @DATA
+      MOV DS , AX
+      
+      ;ADD OPERATION
+      MOV AX , LOWER_BYTE
+      ADD AX , HIGHER_BYTE ; ADDITION -> 9BCE + 2130 = 0BCFE
+      MOV RESULT , AX
+      
+      ;SUBTRACT OPETATION
+      MOV AX , HIGHER_BYTE
+      SUB AX , LOWER_BYTE ; SUBTRACTION -> 9BCE - 2130 = 7A9E
+      MOV RESULT , AX
+      
+      ;MULTIPLICATION 
+      MOV AX , LOWER_BYTE
+      MUL HIGHER_BYTE ;RESULT IS AUTOMATICALLY STORED IN THE DX : AX REGISTER , DX WILL HAVE 16 - MSB BITS AND AX WILL HAVE 16 LSB BITS
+      MOV MUL_RESULTL , AX
+      MOV MUL_RESULTH , DX 
+      
+      
+      
+      
+      ;DIVISION OPERATION
+      MOV AX , 9BCEH
+      MOV BX , 2130H
+      DIV BX 
+      MOV RESULT , AX
+      MOV QUOTIENT , AX 
+      MOV REMAINDER , DX
+      
+      
+      
+      
+CODE ENDS
+END START

@@ -1,0 +1,43 @@
+;AUTHOR - RISHABH MISHRA 
+;DATE - 26-08-2021
+;REGISTRATION NUMBER - 19BCE2088
+
+DATA SEGMENT
+    X DB 01H , 09H , 0BH , 0CH , 0EH , 02H , 00H , 08H , 08H
+    Y DB 08H , 08H , 00H , 02H , 0EH , 0CH , 0BH , 09H , 01H
+DATA ENDS
+
+CODE SEGMENT
+    ASSUME CS:CODE , DS:DATA
+    
+    START:   
+    ;LOAD DATA SEGMENT 
+    MOV AX , DATA 
+    MOV DS , AX        
+    
+    ;LOAD THE OFFSETS OF THE TWO VARIABLES IN SI AND DI REGISTERS
+    
+    LEA SI , X
+    LEA DI , Y
+    MOV CX , 09H
+    
+    LOOP_IT:
+    
+    MOV AL , [SI] 
+    MOV BL , [DI]
+    
+    MOV [SI] , BL
+    MOV [DI] , AL
+    
+    INC SI
+    INC DI 
+    DEC CX 
+    
+    JNZ LOOP_IT
+    
+    MOV AH , 4CH 
+    INT 21H 
+    
+CODE ENDS
+END START
+
