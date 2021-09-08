@@ -1,0 +1,38 @@
+DATA SEGMENT
+NUM1 DW 1234h , 4568H ; -----> 45681234 
+NUM2 DW 6970h , 7546H ; -----> 75466970
+SUM DW 4 DUP(0)
+DATA ENDS
+
+  
+CODE SEGMENT
+ASSUME CS:CODE,DS:DATA
+  
+
+START: 
+
+MOV AX,DATA
+MOV DS,AX
+
+MOV AX,NUM1  ;Move LSB of NUM1 to AX
+
+ADD AX,NUM2   ;Add LSB of NUM2 to AX
+
+MOV SUM,AX    ;Store the LSB in SUM
+
+MOV AX,NUM1+2 ; Move MSB of NUM1 to AX
+
+ADC AX,NUM2+2  ; Add MSB of NUM2 to AX
+
+JNC DOWN ; Check for carry
+
+MOV SUM+4,01H  ; Store the carry in SUM+4
+
+DOWN: MOV SUM+2,AX  ; Store the MSB in SUM+2
+
+MOV AH,4CH
+INT 21H
+CODE ENDS
+END START
+
+           
