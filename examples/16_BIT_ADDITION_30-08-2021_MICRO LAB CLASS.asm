@@ -1,5 +1,5 @@
 data segment
-    num dw 0f234h , 0f23h
+    num dw 1234h , 0e231h
     sum dw 2 dup(0) ;there are 4 mem locations
 data ends
 

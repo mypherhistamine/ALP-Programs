@@ -1,11 +1,6 @@
 DATA SEGMENT               
-    
 DATA1 DB 019H,0BCH,0E2H,08H 
-
 DATA2 DW 19BCH, 0E208H , 0008H
-
-
-  
 DATA ENDS
 
 
@@ -53,34 +48,12 @@ MOV BX , OFFSET DATA2
 MOV DI , OFFSET DATA1                   
 MOV AX , [BX + DI]
 
-
-
-
 ;BASED INDEXED DISPLACEMENT MODE 
-
 MOV AL , [SI+BP + 0300H]
-
-
-
-
-
-
-
-
-
-
-
-                
- 
-
-
-
 
 ;EXIT PROGRAM
 MOV AH , 4CH
 INT 21H
-
-
 CODE ENDS
 END START
 
