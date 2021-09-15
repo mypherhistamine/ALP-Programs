@@ -1,12 +1,11 @@
-;16-bit unsigned numbers multiplcation 
+;16-bit unsigned numbers multiplcation for unsigned numbers
 ; result = 014B5A90
 data segment
     
     num dw 1234h , 1234h 
     prod dw 2 dup(0h)
     
-    
-    data ends
+data ends
         
     
     
@@ -28,7 +27,7 @@ code segment
         
         mov prod  , ax ;32 bit product stored in DX-AX register 
         
-        mov prod+2 , dx
+        mov prod+2 , dx  ;store higher word 
         
         mov ah , 4ch ; exit program ke liye 
         int 21h         
