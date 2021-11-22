@@ -1,8 +1,8 @@
 data segment
+    num_arr db 19h , 0BCh , 0E2h  , 08h , 08h
     ;num_arr db 19h , 0BCh , 0E2h  , 08h , 08h
-    num_arr db 19h , 0EAh , 00h  , 08h , 08h
-    max db ? 
-    ans db ?   
+    max db 1 dup(0)
+    ans db 1 dup(0) 
     
     message db "The largest number from the array is" ,10 , 13 , 10 , "$"
         
@@ -31,44 +31,48 @@ code segment
             
 ;store max in bh as we will need dx register             
 mov bh , dh 
-    
-lea dx , message 
-mov ah , 09h 
-int 21h
-
-;If value comes like E2 then splitting it like this -> 0E and 02      
-mov dx , 0000h
-mov dl , bh
-and dl , 0Fh
-
-mov dh , bh 
-and dh , 0F0h
-;rotate 
-ror dh , 04h
-
-;check if alphabet or numeric
-
-mov bh , dh 
-sub bh , 0Ah
-
-jnc alphabet
-
-add dh , 07h
-
-
-alphabet:
-
-    add dl , 30h
-    add dl , 30h
-
-mov ans , dh
-mov ans + 1 , dl
-mov ans + 2 , 24h
-
-lea dx , ans
-mov ah , 09h
-int 21h
-
+;mov dl , bh 
+;mov ah , 02h
+;int 21h
+;      
+      
+;lea dx , message 
+;mov ah , 09h 
+;int 21h
+;
+;;If value comes like E2 then splitting it like this -> 0E and 02      
+;mov dx , 0000h
+;mov dl , bh
+;and dl , 0Fh
+;
+;mov dh , bh 
+;and dh , 0F0h
+;;rotate 
+;ror dh , 04h
+;
+;;check if alphabet or numeric
+;
+;mov bh , dh 
+;sub bh , 0Ah
+;
+;jnc alphabet
+;
+;add dh , 07h
+;
+;
+;alphabet:
+;
+;    add dl , 30h
+;    add dl , 30h
+;
+;mov ans , dh
+;mov ans + 1 , dl
+;mov ans + 2 , 24h
+;
+;lea dx , ans
+;mov ah , 09h
+;int 21h
+;
 
 
     
