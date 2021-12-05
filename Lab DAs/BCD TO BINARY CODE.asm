@@ -1,5 +1,4 @@
 ;ALP PROGRAM TO CONVERT BCD TO BINARY VALUE 
-
 DATA SEGMENT
     
     ;SINCE DECIMAL VALUES CAN HAVE 0 TO 9 NUMBERS ONLY 
@@ -8,8 +7,8 @@ DATA SEGMENT
     ;19BCE2088 TO 192088 , BREAKING INTO 8 BITS
     ;19H , 20H , 88H 
     
-    BCD DB  19H , 20H , 88H
-    BIN DB ?
+    BCD DB  19H , 20H , 88H   ;decimal hai 
+    BIN DB ?                  ;hexadecimal hai              
     
     DATA ENDS
 
